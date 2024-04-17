@@ -9,11 +9,8 @@ LOPTS = -lm -L. -luniversity
 EXENAME = testuniversity
 
 # Default target
-$(EXENAME) : lab13.o
+$(EXENAME) : main.o lab13.o
 	$(CC) $^ $(LOPTS) -o $@
-
-lab13.o : lab13.c
-	$(CC) $(COPTS) $^
 
 # Debugging target
 debug: COPTS += -DDEBUG=1 -g
@@ -29,6 +26,13 @@ regular: clean $(EXENAME)
 # Honors Debug target
 honorsdebug: COPTS += -DDEBUG=1 -g -DHONORS=1
 honorsdebug: clean $(EXENAME)
+
+# Source dependencies
+main.o : main.c
+	$(CC) $(COPTS) $^
+
+lab13.o : lab13.c
+	$(CC) $(COPTS) $^
 
 # Clean build target
 clean :
