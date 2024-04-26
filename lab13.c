@@ -10,13 +10,13 @@
 // Stubs for functions you need to implement
 Course GetCourseByDeptAndNumber(char * dept, int number)
 {
-    static Course course={-1};
+    Course course={-1};
     return course;
 }
 
 Course GetCourseByID(COURSE_ID id)
 {
-    static Course course={-1};
+    Course course={-1};
     return course;
 }
 
